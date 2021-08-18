@@ -150,7 +150,7 @@ Hopefully, being able to describe the operation of the neural networks in words 
 <p>Our first stop is the notion of the embedding.
 Take a look at the below image showing the genre ingredients of the movie Forrest Gump.</p>
 
-<p><img src="/images/embedding.png" alt="" title="Genres of 'Forrest Gump' movie"></p>
+<p><img src="/blog/images/embedding.png" alt="" title="Genres of 'Forrest Gump' movie"></p>
 
 <p>“Forrest Gump” is a movie that contains a bit of comedy, a fare amount of romance and drama, a lot of magical realism.</p>
 
@@ -163,35 +163,35 @@ Take a look at the below image showing the genre ingredients of the movie Forres
 <p>Now, for the crucial part : Given the representation of the movie, what question should be asked if one wanted to find out how similar “Forrest Gump” is to romantic and dramatic movies ?</p>
 
 <p>A possible question could be the following : 
-<img src="/images/question.png" alt="" title="How similar is 'Forrest Gump' to romantic and dramatic movies?"></p>
+<img src="/blog/images/question.png" alt="" title="How similar is 'Forrest Gump' to romantic and dramatic movies?"></p>
 
 <h2 id="dot-product--question--matrix--questionnaire">
 <a class="anchor" href="#dot-product--question--matrix--questionnaire" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dot Product = Question | Matrix = Questionnaire</h2>
 
 <p>If a single dot product is a Question being asked, then matrix vector multiplication is asking many Questions, that is a Questionnaire whereby the questions a laid out in the rows of the matrix.</p>
 
-<p><img src="/images/questionnaire.png" alt="" title="Questions are the rows of the Questionnaire Matrix"></p>
+<p><img src="/blog/images/questionnaire.png" alt="" title="Questions are the rows of the Questionnaire Matrix"></p>
 
 <h2 id="neuron--journalist-asking-a-single-question">
 <a class="anchor" href="#neuron--journalist-asking-a-single-question" aria-hidden="true"><span class="octicon octicon-link"></span></a>Neuron = Journalist asking a single question</h2>
 
 <p>We reach our first abstraction on what a neuron is doing. It is just asking a question of the form : “How similar the input is to …..?”</p>
 
-<p><img src="/images/single_neuron.png" alt="" title="A single neuron is a Journalist asking a question-dot product"></p>
+<p><img src="/blog/images/single_neuron.png" alt="" title="A single neuron is a Journalist asking a question-dot product"></p>
 
 <p>Imagine you are given the following set of points (with classes orange and blue).</p>
 
-<p><img src="/images/scatter_plot.png" alt="" title="Points belonging to classes 'blue' and 'orange'"></p>
+<p><img src="/blog/images/scatter_plot.png" alt="" title="Points belonging to classes 'blue' and 'orange'"></p>
 
 <p>For completeness the above scatter plot provided also as a line plot.</p>
 
-<p><img src="/images/line_plot.png" alt="" title="Line connecting the points above"></p>
+<p><img src="/blog/images/line_plot.png" alt="" title="Line connecting the points above"></p>
 
 <p>Could you come up with a question of the form “how similar” to ask a point of interest and decide on the class it belongs ?</p>
 
 <p>Well after training a single neuron (linear regression algorithm) the question that pops up is the similarity of the point under classification with the vector as shown in ‘green’.
 The line in ‘red’ is the line perpendicular to the ‘green’ line and is provided to show that in a way the question that is learnt is as much as possible learning to separate the input classes.
-<img src="/images/trained_question.png" alt="" title="Question being asked to separate the classes of points = Similarity with green line"></p>
+<img src="/blog/images/trained_question.png" alt="" title="Question being asked to separate the classes of points = Similarity with green line"></p>
 
 <p>Should we watn to be more specific, the Question which is being asked is : “How similar is the vector location of the point under test to the vector whose representation is in green?”. If the similarity is positive (that is if the point sits at the right of the red line since the points along the red line have 0 similarity to the green vector) then the point is classified as blue. Otherwise the point is classified as orange. This is why the red line is actually sitting in the middle of the lines blue and orange.</p>
 
@@ -203,7 +203,7 @@ The two distinct classes are linearly separable in mathematical terms, which pre
 <p>This is not most of the time the case since no single question exists which could separate the data.
 Take a look for example at the below dataset :</p>
 
-<p><img src="/images/non-linearly-separable.png" alt="" title="The data cannot be distinguished "></p>
+<p><img src="/blog/images/non-linearly-separable.png" alt="" title="The data cannot be distinguished "></p>
 
 <p>The data in the above figure cannot be separated with a single question. We need more questions to ask.</p>
 
@@ -218,7 +218,7 @@ In mathematical terms, this is called mapping the input space to another space. 
 <p>Neural networks order many journalists in sequence. The journalists of later layers/stages ask questions based on the answers of previous stages.
 It is much like an interview process. Input from various interview stages is provided to later ones and combined to provide the final result. A constant refinement and processing of information is taking place.</p>
 
-<p><img src="/images/neural_network.png" alt="" title="Neural network as a sequence of Journalists - Answers to the first Journalists are used as input to the next set of Journalists"></p>
+<p><img src="/blog/images/neural_network.png" alt="" title="Neural network as a sequence of Journalists - Answers to the first Journalists are used as input to the next set of Journalists"></p>
 
 <h2 id="non-linearities--learning-to-ask-significant-questions">
 <a class="anchor" href="#non-linearities--learning-to-ask-significant-questions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Non-Linearities = Learning to ask significant questions</h2>
@@ -231,7 +231,7 @@ How could we do this. As a reminder our questions are of the form : “How simil
 <p>This can be an intrinsic function of the neurons in our brain.
 In order to enforce such a logic into our neural network we drive the answer to the question in each neuron through a non-linear unit (a famous such unit is the ReLU Function shown below).</p>
 
-<p><img src="/images/relu.png" alt="" title="We want all our questions to be such that there is some similarity with the questions we ask for the questions to be significant and meaningful"></p>
+<p><img src="/blog/images/relu.png" alt="" title="We want all our questions to be such that there is some similarity with the questions we ask for the questions to be significant and meaningful"></p>
 
 <p>A programmatical view of the function of non-linear units leading to the introduction of logic in the system is the following:</p>
 
