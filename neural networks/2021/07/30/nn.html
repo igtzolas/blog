@@ -16,7 +16,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-07-30T00:00:00-05:00" />
 <script type="application/ld+json">
-{"url":"https://igtzolas.github.io/blog/neural%20networks/2021/07/30/nn.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://igtzolas.github.io/blog/neural%20networks/2021/07/30/nn.html"},"headline":"Neural Network as a collection of Journalists","dateModified":"2021-07-30T00:00:00-05:00","datePublished":"2021-07-30T00:00:00-05:00","description":"A simple metaphor to understand how neural networks function.","@context":"https://schema.org"}</script>
+{"datePublished":"2021-07-30T00:00:00-05:00","url":"https://igtzolas.github.io/blog/neural%20networks/2021/07/30/nn.html","@type":"BlogPosting","dateModified":"2021-07-30T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://igtzolas.github.io/blog/neural%20networks/2021/07/30/nn.html"},"headline":"Neural Network as a collection of Journalists","description":"A simple metaphor to understand how neural networks function.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://igtzolas.github.io/blog/feed.xml" title="Written traces of verbal and visual thought paths" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -93,28 +93,40 @@ window.onload = wrap_img;
     </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>A non-mathematical introduction to neural networks by parallelizing the neurons in neural networks with unit journalists asking questions.</p>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#intention">Intention</a></li>
+<li class="toc-entry toc-h2"><a href="#embedding--vector--ordered-collection-of-characteristicsfeatures">Embedding = Vector = Ordered Collection of Characteristics/Features</a></li>
+<li class="toc-entry toc-h2"><a href="#dot-product--question--matrix--questionnaire">Dot Product = Question | Matrix = Questionnaire</a></li>
+<li class="toc-entry toc-h2"><a href="#neuron--journalist-asking-a-single-question">Neuron = Journalist asking a single question</a></li>
+<li class="toc-entry toc-h2"><a href="#the-need-for-more-questionsjournalists">The need for more Questions/Journalists</a></li>
+<li class="toc-entry toc-h2"><a href="#anatomy-of-a-neural-network--network-of-groups-of-journalists-visited-in-sequence">Anatomy of a Neural Network = Network of groups of Journalists visited in sequence</a></li>
+<li class="toc-entry toc-h2"><a href="#non-linearities--learning-to-ask-significant-questions">Non-Linearities = Learning to ask significant questions</a></li>
+<li class="toc-entry toc-h2"><a href="#dropout-regularization-intuition--asking-fewer-questions-to-retrieve-the-same-information-forces-the-questions-to-be-more-general">Dropout Regularization Intuition = Asking fewer questions to retrieve the same information forces the questions to be more general</a></li>
+<li class="toc-entry toc-h2"><a href="#l1l2-regularization-intuition--questions-should-target-a-directionessence-and-not-a-specific-point">L1/L2 Regularization Intuition = Questions should target a direction/essence and not a specific point</a></li>
+<li class="toc-entry toc-h2"><a href="#residual-neural-networks--refining--adding-to-previous-answers">Residual Neural Networks = Refining / Adding to previous answers</a></li>
+</ul><p>A non-mathematical introduction to neural networks by parallelizing the neurons in neural networks with unit journalists asking questions.</p>
 
 <p>This metaphor is used to justify and describe various functions we embed in neural networks to make them work and be more efficient (non-linear units, dropout and L1/L2 regularization) and also reason about the way the networks are architected (residual neural networks).</p>
 
-<p><img src="/blog/images/little_little_journalists.png" alt="" title="Small journalists" /></p>
+<p><img src="/blog/images/little_little_journalists.png" alt="" title="Small journalists"></p>
 
-<p>Table of contents:
-TOC</p>
+<p>Table of contents:</p>
 
-<h2 id="intention">Intention</h2>
+<h2 id="intention">
+<a class="anchor" href="#intention" aria-hidden="true"><span class="octicon octicon-link"></span></a>Intention</h2>
 
 <p>Inspiration for the creation of neural networks has been drawn from the neurons in the brain.
 Based on this, there has to be a simple, thus unconscious metaphor, which can lead to better understanding how the networks operate.
 This story tries to do just this: Provide for a metaphor which allows for the frictionless flow of the understanding of neural networks within the human brain :-).
 Hopefully, being able to describe the operation of the neural networks in words and by leveraging a ‘concrete’ metaphor will lead to philosophical perambulations around how they can evolve.</p>
 
-<h2 id="embedding--vector--ordered-collection-of-characteristicsfeatures">Embedding = Vector = Ordered Collection of Characteristics/Features</h2>
+<h2 id="embedding--vector--ordered-collection-of-characteristicsfeatures">
+<a class="anchor" href="#embedding--vector--ordered-collection-of-characteristicsfeatures" aria-hidden="true"><span class="octicon octicon-link"></span></a>Embedding = Vector = Ordered Collection of Characteristics/Features</h2>
 
 <p>Our first stop is the notion of the embedding.
 Take a look at the below image showing the genre ingredients of the movie Forrest Gump.</p>
 
-<p><img src="/blog/images/embedding.png" alt="" title="Genres of 'Forrest Gump' movie" /></p>
+<p><img src="/blog/images/embedding.png" alt="" title="Genres of 'Forrest Gump' movie"></p>
 
 <p>“Forrest Gump” is a movie that contains a bit of comedy, a fare amount of romance and drama, a lot of magical realism.</p>
 
@@ -127,44 +139,47 @@ Take a look at the below image showing the genre ingredients of the movie Forres
 <p>Now, for the crucial part : Given the representation of the movie, what question should be asked if one wanted to find out how similar “Forrest Gump” is to romantic and dramatic movies ?</p>
 
 <p>A possible question could be the following : 
-<img src="/blog/images/question.png" alt="" title="How similar is 'Forrest Gump' to romantic and dramatic movies?" /></p>
+<img src="/blog/images/question.png" alt="" title="How similar is 'Forrest Gump' to romantic and dramatic movies?"></p>
 
-<h2 id="dot-product--question--matrix--questionnaire">Dot Product = Question | Matrix = Questionnaire</h2>
+<h2 id="dot-product--question--matrix--questionnaire">
+<a class="anchor" href="#dot-product--question--matrix--questionnaire" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dot Product = Question | Matrix = Questionnaire</h2>
 
 <p>If a single dot product is a Question being asked, then matrix vector multiplication is asking many Questions, that is a Questionnaire whereby the questions a laid out in the rows of the matrix.</p>
 
-<p><img src="/blog/images/questionnaire.png" alt="" title="Questions are the rows of the Questionnaire Matrix" /></p>
+<p><img src="/blog/images/questionnaire.png" alt="" title="Questions are the rows of the Questionnaire Matrix"></p>
 
-<h2 id="neuron--journalist-asking-a-single-question">Neuron = Journalist asking a single question</h2>
+<h2 id="neuron--journalist-asking-a-single-question">
+<a class="anchor" href="#neuron--journalist-asking-a-single-question" aria-hidden="true"><span class="octicon octicon-link"></span></a>Neuron = Journalist asking a single question</h2>
 
 <p>We reach our first abstraction on what a neuron is doing. It is just asking a question of the form : “How similar the input is to …..?”</p>
 
-<p><img src="/blog/images/single_neuron.png" alt="" title="A single neuron is a Journalist asking a question-dot product" /></p>
+<p><img src="/blog/images/single_neuron.png" alt="" title="A single neuron is a Journalist asking a question-dot product"></p>
 
 <p>Imagine you are given the following set of points (with classes orange and blue).</p>
 
-<p><img src="/blog/images/scatter_plot.png" alt="" title="Points belonging to classes 'blue' and 'orange'" /></p>
+<p><img src="/blog/images/scatter_plot.png" alt="" title="Points belonging to classes 'blue' and 'orange'"></p>
 
 <p>For completeness the above scatter plot provided also as a line plot.</p>
 
-<p><img src="/blog/images/line_plot.png" alt="" title="Line connecting the points above" /></p>
+<p><img src="/blog/images/line_plot.png" alt="" title="Line connecting the points above"></p>
 
 <p>Could you come up with a question of the form “how similar” to ask a point of interest and decide on the class it belongs ?</p>
 
 <p>Well after training a single neuron (linear regression algorithm) the question that pops up is the similarity of the point under classification with the vector as shown in ‘green’.
 The line in ‘red’ is the line perpendicular to the ‘green’ line and is provided to show that in a way the question that is learnt is as much as possible learning to separate the input classes.
-<img src="/blog/images/trained_question.png" alt="" title="Question being asked to separate the classes of points = Similarity with green line" /></p>
+<img src="/blog/images/trained_question.png" alt="" title="Question being asked to separate the classes of points = Similarity with green line"></p>
 
 <p>Should we watn to be more specific, the Question which is being asked is : “How similar is the vector location of the point under test to the vector whose representation is in green?”. If the similarity is positive (that is if the point sits at the right of the red line since the points along the red line have 0 similarity to the green vector) then the point is classified as blue. Otherwise the point is classified as orange. This is why the red line is actually sitting in the middle of the lines blue and orange.</p>
 
-<h2 id="the-need-for-more-questionsjournalists">The need for more Questions/Journalists</h2>
+<h2 id="the-need-for-more-questionsjournalists">
+<a class="anchor" href="#the-need-for-more-questionsjournalists" aria-hidden="true"><span class="octicon octicon-link"></span></a>The need for more Questions/Journalists</h2>
 <p>The data in the previous example could be separated with a single question.
 The two distinct classes are linearly separable in mathematical terms, which pretty much means that a line can be drawn which separates them.</p>
 
 <p>This is not most of the time the case since no single question exists which could separate the data.
 Take a look for example at the below dataset :</p>
 
-<p><img src="/blog/images/non-linearly-separable.png" alt="" title="The data cannot be distinguished " /></p>
+<p><img src="/blog/images/non-linearly-separable.png" alt="" title="The data cannot be distinguished "></p>
 
 <p>The data in the above figure cannot be separated with a single question. We need more questions to ask.</p>
 
@@ -173,14 +188,16 @@ In mathematical terms, this is called mapping the input space to another space. 
 
 <p>Now, the way towards neural networks is open. We combine a series of questions. Each new layer (group of journalists/questions) builds on top of the previous answers.</p>
 
-<h2 id="anatomy-of-a-neural-network--network-of-groups-of-journalists-visited-in-sequence">Anatomy of a Neural Network = Network of groups of Journalists visited in sequence</h2>
+<h2 id="anatomy-of-a-neural-network--network-of-groups-of-journalists-visited-in-sequence">
+<a class="anchor" href="#anatomy-of-a-neural-network--network-of-groups-of-journalists-visited-in-sequence" aria-hidden="true"><span class="octicon octicon-link"></span></a>Anatomy of a Neural Network = Network of groups of Journalists visited in sequence</h2>
 
 <p>Neural networks order many journalists in sequence. The journalists of later layers/stages ask questions based on the answers of previous stages.
 It is much like an interview process. Input from various interview stages is provided to later ones and combined to provide the final result. A constant refinement and processing of information is taking place.</p>
 
-<p><img src="/blog/images/neural_network.png" alt="" title="Neural network as a sequence of Journalists - Answers to the first Journalists are used as input to the next set of Journalists" /></p>
+<p><img src="/blog/images/neural_network.png" alt="" title="Neural network as a sequence of Journalists - Answers to the first Journalists are used as input to the next set of Journalists"></p>
 
-<h2 id="non-linearities--learning-to-ask-significant-questions">Non-Linearities = Learning to ask significant questions</h2>
+<h2 id="non-linearities--learning-to-ask-significant-questions">
+<a class="anchor" href="#non-linearities--learning-to-ask-significant-questions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Non-Linearities = Learning to ask significant questions</h2>
 
 <p>Suppose we set the target to come up with significant questions.
 How could we do this. As a reminder our questions are of the form : “How similar …..?”</p>
@@ -190,7 +207,7 @@ How could we do this. As a reminder our questions are of the form : “How simil
 <p>This can be an intrinsic function of the neurons in our brain.
 In order to enforce such a logic into our neural network we drive the answer to the question in each neuron through a non-linear unit (a famous such unit is the ReLU Function shown below).</p>
 
-<p><img src="/blog/images/relu.png" alt="" title="We want all our questions to be such that there is some similarity with the questions we ask for the questions to be significant and meaningful" /></p>
+<p><img src="/blog/images/relu.png" alt="" title="We want all our questions to be such that there is some similarity with the questions we ask for the questions to be significant and meaningful"></p>
 
 <p>A programmatical view of the function of non-linear units leading to the introduction of logic in the system is the following:</p>
 
@@ -203,7 +220,8 @@ else:
 	return how_similar
 </code></pre></div></div>
 
-<h2 id="dropout-regularization-intuition--asking-fewer-questions-to-retrieve-the-same-information-forces-the-questions-to-be-more-general">Dropout Regularization Intuition = Asking fewer questions to retrieve the same information forces the questions to be more general</h2>
+<h2 id="dropout-regularization-intuition--asking-fewer-questions-to-retrieve-the-same-information-forces-the-questions-to-be-more-general">
+<a class="anchor" href="#dropout-regularization-intuition--asking-fewer-questions-to-retrieve-the-same-information-forces-the-questions-to-be-more-general" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dropout Regularization Intuition = Asking fewer questions to retrieve the same information forces the questions to be more general</h2>
 
 <p>If we limit the number of questions which are being asked, then we force the questions to be more general and not focus on details as they would need to cover more cases and try to identify broader underlying patterns.</p>
 
@@ -223,14 +241,16 @@ If we had 2 questions and a territory where we searched wtether there was snow i
   <li>Is the terrritory over a particular latitude ?</li>
 </ul>
 
-<h2 id="l1l2-regularization-intuition--questions-should-target-a-directionessence-and-not-a-specific-point">L1/L2 Regularization Intuition = Questions should target a direction/essence and not a specific point</h2>
+<h2 id="l1l2-regularization-intuition--questions-should-target-a-directionessence-and-not-a-specific-point">
+<a class="anchor" href="#l1l2-regularization-intuition--questions-should-target-a-directionessence-and-not-a-specific-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>L1/L2 Regularization Intuition = Questions should target a direction/essence and not a specific point</h2>
 
 <p>If we think about what 
 L1/L2 regularization tries to do, we understand that it tries to make the parameters of a question as small as possible. 
 Thus, the target is to find the essence of a question (i.e. How similar the acting of the actor is with regards to “Passionate Actor Performances”?) and not specific comparisons (i.e. How wimilar the acting of the actor is with regards to “Performance of Al Pacino in the Scent of a Woman?”?). 
 We are looking out for questions that are unit vectors and thus solely cover direction/essence and not vectors close to specific point which do not generalize well and are more subjective.</p>
 
-<h2 id="residual-neural-networks--refining--adding-to-previous-answers">Residual Neural Networks = Refining / Adding to previous answers</h2>
+<h2 id="residual-neural-networks--refining--adding-to-previous-answers">
+<a class="anchor" href="#residual-neural-networks--refining--adding-to-previous-answers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Residual Neural Networks = Refining / Adding to previous answers</h2>
 
 <p>What Residual networks are intuitevely doing is that they combine the answers provided in previous steps with small additions/refinements to them which are provided on top of these previous answers.</p>
 
